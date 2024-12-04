@@ -23,6 +23,17 @@ const AddReview = () => {
       username,
     };
     console.log(reviewData);
+    fetch("http://localhost:3000/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(reviewData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   };
   return (
     <div className="lg:w-3/4 mx-auto">
