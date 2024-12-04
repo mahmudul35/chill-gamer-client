@@ -1,27 +1,35 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 const Login = () => {
   const navigate = useNavigate();
-  // const { signIn, signInWithGoogle } = useContext(AuthContext);
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-  const emailRef = useRef(null);
 
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    setError("");
+    signIn(email, password)
+      .then((result) => {
+        navigate("/");
+      })
+      .catch((error) => {
+        setError("Invalid email or password. Please try again.");
+      });
   };
-  // const handleGoogleLogin = () => {
-  //   signInWithGoogle()
-  //     .then((result) => {
-  //       navigate("/");
-  //     })
-  //     .catch((error) => {
-  //       setError("Failed to sign in with Google. Please try again.");
-  //     });
-  // };
+  const handleGoogleLogin = () => {
+    signInWithGoogle()
+      .then((result) => {
+        navigate("/");
+      })
+      .catch((error) => {
+        setError("Failed to sign in with Google. Please try again.");
+      });
+  };
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
@@ -69,7 +77,7 @@ const Login = () => {
         </form>
         <div className="divider px-8">OR</div>
         <div className="form-control mt-1 px-8">
-          <button className="btn  bg-base-100">
+          <button onClick={handleGoogleLogin} className="btn  bg-base-100">
             <FaGoogle /> Login with Google
           </button>
         </div>
