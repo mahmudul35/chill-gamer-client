@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
@@ -43,7 +43,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to={"/auth/login"} className="btn">
+          Login
+        </Link>
       </div>
     </div>
   );
