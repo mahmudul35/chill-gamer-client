@@ -49,7 +49,7 @@ const Navbar = () => {
       <div className="navbar-end">
         {user && (
           <img
-            src={user.photoURL ? user.photoURL : userLogo}
+            src={user?.photoURL}
             alt=""
             className="h-10 w-10 rounded-full mr-4 my-anchor-element"
           />
