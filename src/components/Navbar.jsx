@@ -1,6 +1,10 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
+import { AuthContext } from "../context/AuthProvider";
 const Navbar = () => {
+  const { user, signOutUser } = useContext(AuthContext);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -43,9 +47,25 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to={"/auth/login"} className="btn">
-          Login
-        </Link>
+        {user && (
+          <img
+            src={user.photoURL ? user.photoURL : userLogo}
+            alt=""
+            className="h-10 w-10 rounded-full mr-4 my-anchor-element"
+          />
+        )}
+        <Tooltip anchorSelect=".my-anchor-element" place="top">
+          {user?.displayName}
+        </Tooltip>
+        {user ? (
+          <button onClick={signOutUser} class="btn  bg-green-500 text-white">
+            Logout
+          </button>
+        ) : (
+          <NavLink to="/auth/login">
+            <button class="btn  bg-green-500 text-white">Login</button>
+          </NavLink>
+        )}
       </div>
     </div>
   );
