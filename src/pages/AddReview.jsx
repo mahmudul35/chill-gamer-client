@@ -1,6 +1,9 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
+import { AuthContext } from "../context/AuthProvider";
 const AddReview = () => {
+  const { user } = useContext(AuthContext);
   const handleAddReview = (e) => {
     e.preventDefault();
     const photo = e.target.photo.value;
@@ -32,6 +35,13 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         console.log(data);
       });
   };
@@ -88,7 +98,7 @@ const AddReview = () => {
                 <span className="label-text">Rating</span>
               </label>
               <input
-                type="number"
+                type="text"
                 name="rating"
                 placeholder="Rating"
                 className="input input-bordered"
@@ -136,6 +146,8 @@ const AddReview = () => {
               <input
                 type="text"
                 name="email"
+                value={user.email}
+                readonly
                 placeholder="User Email"
                 className="input input-bordered"
                 required
@@ -150,7 +162,8 @@ const AddReview = () => {
                 name="username"
                 placeholder="User Name"
                 className="input input-bordered"
-                required
+                value={user.displayName}
+                readonly
               />
             </div>
           </div>

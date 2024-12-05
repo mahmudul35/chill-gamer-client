@@ -29,6 +29,14 @@ const Register = () => {
         }).then(() => {
           navigate("/");
         });
+        const newUser = { name, email };
+        fetch("http://localhost:3000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        });
       })
       .catch((error) => {
         // console.log("error", error.message);
