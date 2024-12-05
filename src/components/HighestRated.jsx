@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 const HighestRated = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
@@ -31,7 +31,9 @@ const HighestRated = () => {
               <p>{review.rating}</p>
               <p>{review.year}</p>
               <p>{review.genre}</p>
-              <button className="btn">Explore Details</button>
+              <Link to={`/reviewDetails/${review._id}`} className="btn">
+                Explore Details
+              </Link>
             </div>
           </div>
         ))}

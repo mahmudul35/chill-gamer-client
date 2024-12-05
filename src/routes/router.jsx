@@ -6,6 +6,7 @@ import Root from "../layout/Root";
 import AddReview from "../pages/AddReview";
 import AllReview from "../pages/AllReview";
 import Home from "../pages/Home";
+import ReviewDetails from "../pages/ReviewDetails";
 import PrivateRoute from "../private/PrivateRoute";
 const router = createBrowserRouter([
   {
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
       {
         path: "/allreview",
         element: <AllReview />,
+      },
+      {
+        path: "/reviewDetails/:id",
+
+        element: <ReviewDetails />,
       },
       {
         path: "/addreview",
