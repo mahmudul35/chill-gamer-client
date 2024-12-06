@@ -9,6 +9,7 @@ import Home from "../pages/Home";
 import MyReview from "../pages/MyReview";
 import ReviewDetails from "../pages/ReviewDetails";
 import UpdateReview from "../pages/UpdateReview";
+import WatchList from "../pages/WatchList";
 import PrivateRoute from "../private/PrivateRoute";
 const router = createBrowserRouter([
   {
@@ -50,6 +51,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UpdateReview />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/watchlist",
+        element: (
+          <PrivateRoute>
+            <WatchList />
           </PrivateRoute>
         ),
       },

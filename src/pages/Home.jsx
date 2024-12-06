@@ -1,11 +1,12 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Banner from "../components/Banner";
 import HighestRated from "../components/HighestRated";
 const Home = () => {
   const loadedData = useLoaderData();
   return (
     <div>
-      <h1>Home</h1>
+      <Banner />
       {/* {loadedData.map((review) => (
         <div key={review.id}>
           <h2>{review.title}</h2>
