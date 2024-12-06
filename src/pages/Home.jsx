@@ -2,6 +2,7 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
 import HighestRated from "../components/HighestRated";
+import TypingComponent from "../components/Typing";
 const Home = () => {
   const loadedData = useLoaderData();
   return (
@@ -15,6 +16,7 @@ const Home = () => {
           <p>{review.rating}</p>
         </div>
       ))} */}
+      <TypingComponent />
       <HighestRated />
     </div>
   );
