@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const AllReview = () => {
   const [reviews, setReviews] = useState([]);
+
   useEffect(() => {
     fetch(`http://localhost:3000/reviews`, {
       method: "GET",

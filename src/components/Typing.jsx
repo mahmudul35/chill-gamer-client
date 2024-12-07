@@ -1,10 +1,12 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter"; // Import the package
 
-const TypingComponent = () => {
+const TypingComponent = ({ dark }) => {
   return (
     <div className="mb-7 flex justify-center gap-4">
-      <h1 className="text-2xl  font-bold">Welcome To Chill Gamer </h1>
+      <h1 className="text-2xl  font-bold dark:text-base-100">
+        Welcome To Chill Gamer{" "}
+      </h1>
       <h1 className="text-2xl text-red-700 font-bold">
         <Typewriter
           words={["Explore", "Play", "Review", "Connect", "Discover"]}

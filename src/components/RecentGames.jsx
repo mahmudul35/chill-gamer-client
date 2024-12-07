@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const RecentGames = () => {
+const RecentGames = ({ dark }) => {
   const [recent, setRecent] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/reviews", {
@@ -18,27 +18,31 @@ const RecentGames = () => {
       });
   });
   return (
-    <section className=" py-10 mt-4">
+    <section className=" py-10 mt-4 dark:text-base-100">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-6">
+        <h2 className="text-3xl font-bold text-center mb-6 ">
           Recent Added Games
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 ">
           {recent.map((game) => (
             <div
               key={game._id}
-              className="bg-white shadow-lg rounded-lg overflow-hidden"
+              className="bg-white shadow-lg rounded-lg overflow-hidden  dark:bg-slate-900 dark:hover:bg-slate-800"
             >
               <img
                 src={game.photo}
                 alt={game.title}
                 className="w-full h-48 object-cover"
               />
-              <div className="p-4">
-                <h3 className="text-xl font-bold">{game.title}</h3>
-                <p className="text-gray-600">Rating: {game.rating}</p>
+              <div className="p-4 ">
+                <h3 className="text-xl font-bold dark:text-gray-200">
+                  {game.title}
+                </h3>
+                <p className="text-gray-500">Rating: {game.rating}</p>
                 <p className="text-gray-500">{game.genre}</p>
-                <p className="text-gray-700 mt-2">{game.review}</p>
+                <p className="text-gray-700 mt-2 dark:text-gray-500">
+                  {game.review}
+                </p>
               </div>
             </div>
           ))}
