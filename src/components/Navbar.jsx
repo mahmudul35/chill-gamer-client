@@ -5,10 +5,10 @@ import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { AuthContext } from "../context/AuthProvider";
 const Navbar = () => {
-  const { user, signOutUser } = useContext(AuthContext);
+  const { user, signOutUser, dark } = useContext(AuthContext);
 
   return (
-    <div className="navbar bg-base-100 ">
+    <div className="navbar bg-base-100 dark:bg-slate-900">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

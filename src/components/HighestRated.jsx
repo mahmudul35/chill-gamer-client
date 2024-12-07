@@ -24,7 +24,7 @@ const HighestRated = ({ dark }) => {
               <img
                 src={review.photo}
                 alt={review.title}
-                className="w-[350px] mt-2 rounded-lg"
+                className="w-[350px] mt-2 rounded-lg h-[210px]"
               />
             </figure>
             <div className="card-body ">

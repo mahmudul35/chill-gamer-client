@@ -14,7 +14,14 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
+  const [dark, setDark] = useState(false);
   const [loading, setLoading] = useState(true);
+
+  const darkModeHandler = () => {
+    setDark(!dark);
+    document.body.classList.toggle("dark");
+  };
+
   const signUp = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -55,7 +62,9 @@ const AuthProvider = ({ children }) => {
     signOutUser,
     signInWithGoogle,
     updateUserProfile,
+    darkModeHandler,
 
+    dark,
     user,
     loading,
   };

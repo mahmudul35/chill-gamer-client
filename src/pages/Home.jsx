@@ -14,7 +14,7 @@ const Home = () => {
   };
   return (
     <div className="dark:bg-slate-900">
-      <div className="flex gap-4 items-center justify-end mt-4 dark:py-6">
+      <div className="flex gap-4 items-center justify-end dark:py-6">
         <h1 className="dark:text-base-100">
           Enable {!dark ? "Dark" : "Light"} Theme:{" "}
         </h1>
