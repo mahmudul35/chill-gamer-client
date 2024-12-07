@@ -3,14 +3,11 @@ import { Typewriter } from "react-simple-typewriter"; // Import the package
 
 const TypingComponent = () => {
   return (
-    <div className="mb-7">
+    <div className="mb-7 flex justify-center gap-4">
+      <h1 className="text-2xl  font-bold">Welcome To Chill Gamer </h1>
       <h1 className="text-2xl text-red-700 font-bold">
         <Typewriter
-          words={[
-            "Welcome to Chill Gamer!",
-            "Find the best games and reviews.",
-            "Enjoy your experience!",
-          ]}
+          words={["Explore", "Play", "Review", "Connect", "Discover"]}
           loop={false}
           cursor
           cursorStyle="_"

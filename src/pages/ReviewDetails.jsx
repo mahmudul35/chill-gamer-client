@@ -15,15 +15,30 @@ const ReviewDetails = () => {
   }, []);
 
   const handleWatchList = () => {
+    const watchListData = {
+      username: review.username,
+      email: review.email,
+      title: review.title,
+      gameId: review._id,
+      photo: review.photo,
+      genre: review.genre,
+      rating: review.rating,
+      review: review.review,
+    };
+    console.log(watchListData);
     fetch("http://localhost:3000/watchList", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(review),
+      body: JSON.stringify(watchListData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.acknowledged) {
+          alert("Added to WatchList");
+        }
+      });
   };
   return (
     <div className="mt-6">

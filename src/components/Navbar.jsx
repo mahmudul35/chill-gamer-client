@@ -54,7 +54,7 @@ const Navbar = () => {
             className="h-10 w-10 rounded-full mr-4 my-anchor-element"
           />
         )}
-        <Tooltip anchorSelect=".my-anchor-element" place="top">
+        <Tooltip anchorSelect=".my-anchor-element" place="top" className="z-50">
           {user?.displayName}
         </Tooltip>
         {user ? (
