@@ -27,7 +27,7 @@ const ReviewDetails = () => {
       genre: review.genre,
       rating: review.rating,
       review: review.review,
-      year: review.year,
+      year: review.year.slice(0, 4),
       userEmail: user.email,
     };
     console.log(watchListData);

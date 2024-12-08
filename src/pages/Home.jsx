@@ -14,21 +14,24 @@ const Home = () => {
   };
   return (
     <div className="dark:bg-slate-900">
-      <div className="flex gap-4 items-center justify-end dark:py-6">
-        <h1 className="dark:text-base-100">
-          Enable {!dark ? "Dark" : "Light"} Theme:{" "}
-        </h1>
-        <button
-          onClick={() => darkModeHandler()}
-          className="mr-5 dark:text-base-100 "
-        >
-          {dark && <IoSunny size={20} />}
-          {!dark && <IoMoon size={20} />}
-        </button>
+      <div className="flex items-center justify-between  dark:py-6 px-10">
+        <div className="text-center mt-10">
+          <TypingComponent dark={dark} />
+        </div>
+        <div className="flex gap-4 justify-end items-center ">
+          <h1 className="dark:text-base-100 hidden md:inline">
+            Enable {!dark ? "Dark" : "Light"} Theme:{" "}
+          </h1>
+          <button
+            onClick={() => darkModeHandler()}
+            className="mr-5 dark:text-base-100 "
+          >
+            {dark && <IoSunny size={20} />}
+            {!dark && <IoMoon size={20} />}
+          </button>
+        </div>
       </div>
-      <div className="text-center mt-10">
-        <TypingComponent dark={dark} />
-      </div>
+
       <Banner />
       {/* {loadedData.map((review) => (
         <div key={review.id}>

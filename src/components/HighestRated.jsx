@@ -30,9 +30,9 @@ const HighestRated = ({ dark }) => {
             <div className="card-body ">
               <h2 className="card-title">{review.title}</h2>
 
-              <p>{review.rating}</p>
-              <p>{review.year}</p>
-              <p>{review.genre}</p>
+              <p>Rating: {review.rating}</p>
+              <p>Publising Year: {review.year.slice(0, 4)}</p>
+              <p>Genre: {review.genre}</p>
               <Link to={`/reviewDetails/${review._id}`} className="btn">
                 Explore Details
               </Link>
