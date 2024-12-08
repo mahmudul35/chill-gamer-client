@@ -29,7 +29,13 @@ const Login = () => {
         navigate("/");
       })
       .catch((error) => {
-        setError("Invalid email or password. Please try again.");
+        Swal.fire({
+          position: "top",
+          icon: "error",
+          title: "Invalid Email or Password",
+          showConfirmButton: false,
+          timer: 2000,
+        });
       });
   };
   const handleGoogleLogin = () => {

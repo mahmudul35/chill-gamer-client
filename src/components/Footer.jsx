@@ -8,8 +8,8 @@ const Footer = () => {
       <nav className="grid grid-flow-col gap-4">
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
-        <a className="link link-hover">Jobs</a>
-        <a className="link link-hover">Press kit</a>
+        <a className="link link-hover">Popular Games</a>
+        <a className="link link-hover">Highest Rated Games</a>
       </nav>
       <nav>
         <div class="grid grid-flow-col gap-4">
@@ -29,8 +29,8 @@ const Footer = () => {
       </nav>
       <aside>
         <p>
-          Copyright © {new Date().getFullYear()} - All right reserved by ACME
-          Industries Ltd
+          Copyright © {new Date().getFullYear()} - All right reserved by Chill
+          Gamer!
         </p>
       </aside>
     </footer>

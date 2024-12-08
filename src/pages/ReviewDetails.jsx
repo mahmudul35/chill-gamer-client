@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
 import { AuthContext } from "../context/AuthProvider";
 const ReviewDetails = () => {
   const { id } = useParams();
@@ -41,13 +43,19 @@ const ReviewDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          alert("Added to WatchList");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Added to WatchList",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       });
   };
   return (
     <div className="mt-6">
-      <h1>Review Details</h1>
+      <h1 className="text-3xl font-bold text-center mb-6 ">Review Details</h1>
 
       {review && (
         <div className="flex items-center justify-center ">

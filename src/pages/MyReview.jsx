@@ -66,7 +66,7 @@ const MyReview = () => {
             <tr>
               <th className="px-6 py-3  w-12">Serial</th>
               <th className="px-6 py-3  w-1/5">Game Name</th>
-              <th className="px-6 py-3  w-2/5">Review</th>
+              <th className="px-6 py-3 hidden md:inline w-2/5">Review</th>
               <th className="px-6 py-3  w-1/5">Rating</th>
               <th className="px-6 py-3  w-1/5">Genre</th>
               <th className="px-6 py-3  w-1/5">Action</th>
@@ -77,7 +77,9 @@ const MyReview = () => {
               <tr key={index} className="border-t hover:bg-gray-100">
                 <th className="px-6 py-3 text-center">{index + 1}</th>
                 <td className="px-6 py-3 text-center">{review.title}</td>
-                <td className="px-6 py-3 text-center">{review.review}</td>
+                <td className="px-6 py-3 hidden md:inline text-center">
+                  {review.review}
+                </td>
                 <td className="px-6 py-3 text-center">{review.rating}</td>
                 <td className="px-6 py-3 text-center">{review.genre}</td>
                 <td className="px-6 py-3 space-x-2">
