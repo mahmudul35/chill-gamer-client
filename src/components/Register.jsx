@@ -30,7 +30,7 @@ const Register = () => {
           navigate("/");
         });
         const newUser = { name, email };
-        fetch("http://localhost:3000/users", {
+        fetch("https://chill-gamer-server-nu.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -38,9 +38,7 @@ const Register = () => {
           body: JSON.stringify(newUser),
         });
       })
-      .catch((error) => {
-        // console.log("error", error.message);
-      });
+      .catch((error) => {});
   };
   const togglePassword = () => {
     setShowPassword(!showPassword);

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const HighestRated = ({ dark }) => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/highestRated", {
+    fetch("https://chill-gamer-server-nu.vercel.app/highestRated", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

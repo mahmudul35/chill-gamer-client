@@ -9,7 +9,7 @@ const WatchList = () => {
 
   // Fetch watchlist data when the component mounts
   useEffect(() => {
-    fetch(`http://localhost:3000/watchList`, {
+    fetch(`https://chill-gamer-server-nu.vercel.app/watchList`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,7 @@ const WatchList = () => {
       .then((res) => res.json())
       .then((data) => {
         setWatchList(data);
-        // console.log(data[2].userEmail);
+
         const filteredWatchList = data.filter((watch) => {
           return email == watch.userEmail;
         });

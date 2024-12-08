@@ -6,7 +6,7 @@ const AllReview = () => {
   const [filterOption, setFilterOption] = useState("Select");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/reviews`, {
+    fetch(`https://chill-gamer-server-nu.vercel.app/reviews`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +18,7 @@ const AllReview = () => {
 
   const handleDetails = () => {
     useEffect(() => {
-      fetch(`http://localhost:3000/reviewDetails/${id}`, {
+      fetch(`https://chill-gamer-server-nu.vercel.app/reviewDetails/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

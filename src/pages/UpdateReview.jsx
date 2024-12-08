@@ -20,7 +20,7 @@ const UpdateReview = () => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:3000/reviewDetails/${id}`, {
+    fetch(`https://chill-gamer-server-nu.vercel.app/reviewDetails/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -29,8 +29,7 @@ const UpdateReview = () => {
       .then((res) => res.json())
       .then((data) => {
         setReviewData(data);
-      })
-      .catch((err) => console.error("Failed to fetch review data:", err));
+      });
   }, [id]);
 
   const handleChange = (e) => {
@@ -40,7 +39,7 @@ const UpdateReview = () => {
 
   const handleUpdateReview = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/reviews/${id}`, {
+    fetch(`https://chill-gamer-server-nu.vercel.app/reviews/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +57,7 @@ const UpdateReview = () => {
         });
         navigate("/myreviews");
       })
-      .catch((err) => console.error("Failed to update review:", err));
+      .catch((err) => {});
   };
 
   return (

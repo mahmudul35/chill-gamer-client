@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const RecentGames = ({ dark }) => {
   const [recent, setRecent] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/reviews", {
+    fetch("https://chill-gamer-server-nu.vercel.app/reviews", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

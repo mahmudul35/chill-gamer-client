@@ -25,8 +25,8 @@ const AddReview = () => {
       email,
       username,
     };
-    console.log(reviewData);
-    fetch("http://localhost:3000/reviews", {
+
+    fetch("https://chill-gamer-server-nu.vercel.app/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +42,6 @@ const AddReview = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        console.log(data);
       });
   };
   return (

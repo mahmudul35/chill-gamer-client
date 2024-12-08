@@ -5,9 +5,9 @@ const ReviewDetails = () => {
   const { id } = useParams();
   const [review, setReview] = useState(null);
   const { user } = useContext(AuthContext);
-  console.log(user);
+
   useEffect(() => {
-    fetch(`http://localhost:3000/reviewDetails/${id}`, {
+    fetch(`https://chill-gamer-server-nu.vercel.app/reviewDetails/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -30,8 +30,8 @@ const ReviewDetails = () => {
       year: review.year.slice(0, 4),
       userEmail: user.email,
     };
-    console.log(watchListData);
-    fetch("http://localhost:3000/watchList", {
+
+    fetch("https://chill-gamer-server-nu.vercel.app/watchList", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

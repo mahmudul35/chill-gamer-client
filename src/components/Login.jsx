@@ -36,7 +36,7 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         const { email, displayName } = result.user;
-        fetch("http://localhost:3000/users", {
+        fetch("https://chill-gamer-server-nu.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

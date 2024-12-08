@@ -5,6 +5,7 @@ import AuthLayout from "../layout/AuthLayout";
 import Root from "../layout/Root";
 import AddReview from "../pages/AddReview";
 import AllReview from "../pages/AllReview";
+import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import MyReview from "../pages/MyReview";
 import ReviewDetails from "../pages/ReviewDetails";
@@ -15,11 +16,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:3000/reviews"),
+        loader: () => fetch("https://chill-gamer-server-nu.vercel.app/reviews"),
       },
       {
         path: "/allreview",

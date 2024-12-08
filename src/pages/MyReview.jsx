@@ -10,7 +10,7 @@ const MyReview = () => {
   const email = user.email;
 
   useEffect(() => {
-    fetch(`http://localhost:3000/reviews`, {
+    fetch(`https://chill-gamer-server-nu.vercel.app/reviews`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +21,7 @@ const MyReview = () => {
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/reviews/${id}`, {
+    fetch(`https://chill-gamer-server-nu.vercel.app/reviews/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
