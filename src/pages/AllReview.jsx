@@ -65,7 +65,7 @@ const AllReview = () => {
   };
   return (
     <div className="card">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row items-center justify-between">
         <div className="flex  mb-4 px-6 my-4">
           <select onChange={handleFilterOption} className="mr-4 p-2 rounded">
             <option value="Select">Select Genre</option>
@@ -78,7 +78,7 @@ const AllReview = () => {
             Filter
           </button>
         </div>
-        <h1 className="text-3xl font-bold ">All Review</h1>
+        <h1 className="hidden md:inline text-3xl font-bold ">All Review</h1>
         <div className="flex justify-end mb-4 px-6 my-4">
           <select
             onChange={handleSortOptionChange}

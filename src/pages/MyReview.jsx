@@ -21,27 +21,38 @@ const MyReview = () => {
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`https://chill-gamer-server-nu.vercel.app/reviews/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: user.email }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount === 1) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Review Deleted Successfully",
-            showConfirmButton: false,
-            timer: 1500,
+    Swal.fire({
+      title: "Are you sure want to Delete?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://chill-gamer-server-nu.vercel.app/reviews/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: user.email }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount === 1) {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Review Deleted Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              const newReviews = reviews.filter((review) => review._id !== id);
+              setReviews(newReviews);
+            }
           });
-          const newReviews = reviews.filter((review) => review._id !== id);
-          setReviews(newReviews);
-        }
-      });
+      }
+    });
   };
 
   const filteredReviews = reviews.filter((review) => review.email === email);

@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
 import HighestRated from "../components/HighestRated";
 import RecentGames from "../components/RecentGames";
+import TopGamesOfTheWeek from "../components/TopGamesOfTheWeek";
 import TypingComponent from "../components/Typing";
 const Home = () => {
   const loadedData = useLoaderData();
@@ -33,6 +34,8 @@ const Home = () => {
       </div>
 
       <Banner />
+
+      <TopGamesOfTheWeek dark={dark} />
       {/* {loadedData.map((review) => (
         <div key={review.id}>
           <h2>{review.title}</h2>

@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
 import { AuthContext } from "../context/AuthProvider";
 const Register = () => {
   const navigate = useNavigate();
@@ -16,9 +18,14 @@ const Register = () => {
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
-      setError(
-        "Password should be atleast 6 characters, with 1 uppercase, 1 lowercase letter"
-      );
+      Swal.fire({
+        position: "top",
+        icon: "error",
+        title:
+          "Password must contain at least 6 characters, one uppercase and one lowercase",
+        showConfirmButton: false,
+        timer: 2000,
+      });
       return;
     }
     signUp(email, password)
@@ -27,7 +34,14 @@ const Register = () => {
           displayName: name,
           photoURL: photo,
         }).then(() => {
-          navigate("/");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Registration Successful",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          // navigate("/");
         });
         const newUser = { name, email };
         fetch("https://chill-gamer-server-nu.vercel.app/users", {
@@ -44,7 +58,10 @@ const Register = () => {
     setShowPassword(!showPassword);
   };
   return (
-    <div className="flex justify-center items-center h-[calc(100vh-64px)]">
+    <div className="flex flex-col justify-center items-center h-[calc(100vh-64px)]">
+      <h1 className="font-bold text-2xl text-slate-900 mb-4">
+        Create an Account
+      </h1>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <form onSubmit={handleRegister} className="card-body">
           <div className="form-control">

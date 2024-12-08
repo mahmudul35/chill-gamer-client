@@ -4,10 +4,10 @@ import { Typewriter } from "react-simple-typewriter"; // Import the package
 const TypingComponent = ({ dark }) => {
   return (
     <div className="mb-7 flex justify-center gap-4">
-      <h1 className="text-2xl  font-bold dark:text-base-100">
+      <h1 className="text-sm md:text-2xl  font-bold dark:text-base-100">
         Welcome To Chill Gamer{" "}
       </h1>
-      <h1 className="text-2xl text-red-700 font-bold">
+      <h1 className="text-sm md:text-2xl text-red-700 font-bold">
         <Typewriter
           words={["Explore", "Play", "Review", "Connect", "Discover"]}
           loop={false}

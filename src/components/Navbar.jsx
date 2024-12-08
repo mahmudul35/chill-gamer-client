@@ -38,7 +38,7 @@ const Navbar = () => {
             <NavLink to="/watchlist">Game WatchList </NavLink>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Chill Gamer</a>
+        <a className="hidden md:inline btn btn-ghost text-xl">Chill Gamer</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-7">
@@ -116,7 +116,7 @@ const Navbar = () => {
           {user?.displayName}
         </Tooltip>
         {user ? (
-          <button onClick={signOutUser} class="btn  bg-green-500 text-white">
+          <button onClick={signOutUser} class="btn  bg-slate-800 text-white">
             Logout
           </button>
         ) : (
