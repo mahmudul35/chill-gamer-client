@@ -9,7 +9,7 @@ const TopGamesOfTheWeek = ({ dark }) => {
     fetch("http://localhost:3000/topGamesOfTheWeek")
       .then((res) => res.json())
       .then((data) => setTopGames(data))
-      .catch((error) => console.error("Error fetching top games:", error));
+      .catch((error) => {});
   }, []);
 
   return (
