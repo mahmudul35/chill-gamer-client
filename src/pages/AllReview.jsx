@@ -78,6 +78,7 @@ const AllReview = () => {
             Filter
           </button>
         </div>
+        <h1 className="text-3xl font-bold ">All Review</h1>
         <div className="flex justify-end mb-4 px-6 my-4">
           <select
             onChange={handleSortOptionChange}
@@ -94,9 +95,9 @@ const AllReview = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
         {reviews.map((review) => (
-          <div className="card card-compact bg-base-100 w-96 shadow-xl">
+          <div className="card card-compact bg-base-100  shadow-xl">
             <figure>
               <img src={review.photo} alt="Shoes" />
             </figure>

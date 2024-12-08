@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 const ReviewDetails = () => {
   const { id } = useParams();
   const [review, setReview] = useState(null);
+  const { user } = useContext(AuthContext);
+  console.log(user);
   useEffect(() => {
     fetch(`http://localhost:3000/reviewDetails/${id}`, {
       method: "GET",
@@ -24,6 +27,8 @@ const ReviewDetails = () => {
       genre: review.genre,
       rating: review.rating,
       review: review.review,
+      year: review.year,
+      userEmail: user.email,
     };
     console.log(watchListData);
     fetch("http://localhost:3000/watchList", {

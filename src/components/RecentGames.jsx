@@ -12,11 +12,11 @@ const RecentGames = ({ dark }) => {
       .then((res) => res.json())
       .then((data) => {
         const sortedGames = data.sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          (a, b) => new Date(b.createdDate) - new Date(a.createdDate)
         );
         setRecent(sortedGames.slice(0, 4));
       });
-  });
+  }, []);
   return (
     <section className=" py-10 mt-4 dark:text-base-100">
       <div className="container mx-auto">

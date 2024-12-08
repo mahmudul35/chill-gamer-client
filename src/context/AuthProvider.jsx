@@ -8,6 +8,9 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
+
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
 import { auth } from "../firebase/firebase.init";
 
 export const AuthContext = createContext(null);
@@ -53,7 +56,19 @@ const AuthProvider = ({ children }) => {
 
   const signOutUser = () => {
     setLoading(true);
-    return signOut(auth);
+    Swal.fire({
+      position: "top-end",
+      icon: "warning",
+      title: "Are you sure you want to sign out?",
+      showCancelButton: true,
+      confirmButtonText: `Yes`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        signOut(auth);
+
+        return;
+      }
+    });
   };
 
   const userInfo = {

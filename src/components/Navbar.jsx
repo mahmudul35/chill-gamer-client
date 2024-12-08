@@ -8,7 +8,7 @@ const Navbar = () => {
   const { user, signOutUser, dark } = useContext(AuthContext);
 
   return (
-    <div className="navbar bg-base-100 dark:bg-slate-900">
+    <div className="navbar bg-base-100 dark:bg-slate-900 dark:text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,20 +32,76 @@ const Navbar = () => {
             class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <NavLink to={"/"}>Home</NavLink>
-            <NavLink to="/brand">Brands</NavLink>
-            <NavLink to="/profile">My Profile</NavLink>
-            <NavLink to="/devloper">About Developer</NavLink>
+            <NavLink to="/allreview">All Reviews</NavLink>
+            <NavLink to="/addreview">Add Review</NavLink>
+            <NavLink to="/myreviews">My Reviews</NavLink>
+            <NavLink to="/watchlist">Game WatchList </NavLink>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl">Chill Gamer</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-7">
-          <NavLink to={"/"}>Home</NavLink>
-          <NavLink to="/allreview">All Reviews</NavLink>
-          <NavLink to="/addreview">Add Review</NavLink>
-          <NavLink to="/myreviews">My Reviews</NavLink>
-          <NavLink to="/watchlist">Game WatchList </NavLink>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-slate-950 dark:text-red-700 font-bold hover:scale-105 underline "
+                : ""
+            }
+            to={"/"}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-slate-950 dark:text-red-700 font-bold hover:scale-105 underline "
+                : ""
+            }
+            to="/allreview"
+          >
+            All Reviews
+          </NavLink>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-slate-950 dark:text-red-700 font-bold hover:scale-105 underline "
+                : ""
+            }
+            to="/addreview"
+          >
+            Add Review
+          </NavLink>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-slate-950 dark:text-red-700 font-bold hover:scale-105 underline "
+                : ""
+            }
+            to="/myreviews"
+          >
+            My Reviews
+          </NavLink>
+          <NavLink
+            className={({ isActive, isPending }) =>
+              isPending
+                ? "pending"
+                : isActive
+                ? "text-slate-950 dark:text-red-700 font-bold hover:scale-105 underline "
+                : ""
+            }
+            to="/watchlist"
+          >
+            Game WatchList{" "}
+          </NavLink>
         </ul>
       </div>
       <div className="navbar-end">
@@ -64,9 +120,14 @@ const Navbar = () => {
             Logout
           </button>
         ) : (
-          <NavLink to="/auth/login">
-            <button class="btn  bg-green-500 text-white">Login</button>
-          </NavLink>
+          <>
+            <NavLink to="/auth/login">
+              <button class="btn  bg-slate-800 text-white mr-4">Login</button>
+            </NavLink>
+            <NavLink to="/auth/register">
+              <button class="btn  bg-green-500 text-white">Register</button>
+            </NavLink>
+          </>
         )}
       </div>
     </div>

@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
+
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
 const MyReview = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
@@ -28,6 +31,13 @@ const MyReview = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount === 1) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Review Deleted Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
           const newReviews = reviews.filter((review) => review._id !== id);
           setReviews(newReviews);
         }
@@ -38,7 +48,7 @@ const MyReview = () => {
 
   return (
     <div>
-      <h1>My Review</h1>
+      <h1 className="text-center text-2xl font-bold py-8">My Review</h1>
       <div className="overflow-x-auto shadow-lg rounded-lg bg-white">
         <table className="min-w-full table-auto border-collapse">
           <thead className="bg-gray-800 text-white">
@@ -54,11 +64,11 @@ const MyReview = () => {
           <tbody>
             {filteredReviews.map((review, index) => (
               <tr key={index} className="border-t hover:bg-gray-100">
-                <th className="px-6 py-3">{index + 1}</th>
-                <td className="px-6 py-3">{review.title}</td>
-                <td className="px-6 py-3">{review.review}</td>
-                <td className="px-6 py-3">{review.rating}</td>
-                <td className="px-6 py-3">{review.genre}</td>
+                <th className="px-6 py-3 text-center">{index + 1}</th>
+                <td className="px-6 py-3 text-center">{review.title}</td>
+                <td className="px-6 py-3 text-center">{review.review}</td>
+                <td className="px-6 py-3 text-center">{review.rating}</td>
+                <td className="px-6 py-3 text-center">{review.genre}</td>
                 <td className="px-6 py-3 space-x-2">
                   <div className="flex gap-4">
                     <Link

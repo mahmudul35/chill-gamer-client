@@ -1,6 +1,8 @@
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
 import { AuthContext } from "../context/AuthProvider";
 const Login = () => {
   const navigate = useNavigate();
@@ -15,6 +17,15 @@ const Login = () => {
     setError("");
     signIn(email, password)
       .then((result) => {
+        //sweet alert
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Login Successful",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
         navigate("/");
       })
       .catch((error) => {

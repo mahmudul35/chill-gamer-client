@@ -5,8 +5,8 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import hunter from "../assets/hunter.jpg";
 import slide1 from "../assets/slide1.jpg";
-
 const Banner = () => {
   return (
     <div className="mb-20">
@@ -37,7 +37,7 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src={slide1}
+            src={hunter}
             alt=""
             className="w-full h[300px] md:h-[550px] lg:h-[700px] rounded-lg"
           />
