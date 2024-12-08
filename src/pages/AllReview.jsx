@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 const AllReview = () => {
   const [reviews, setReviews] = useState([]);
   const [sortOption, setSortOption] = useState("rating");
   const [filterOption, setFilterOption] = useState("Select");
-
+  const { loading } = useContext(AuthContext);
   useEffect(() => {
     fetch(`https://chill-gamer-server-nu.vercel.app/reviews`, {
       method: "GET",
@@ -95,32 +96,38 @@ const AllReview = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        {reviews.map((review) => (
-          <div className="card card-compact bg-base-100  shadow-xl">
-            <figure>
-              <img src={review.photo} alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">{review.title}</h2>
-              <p className="font-bold text-gray-500  rounded-full">
-                {review.genre}
-              </p>
-              <p>Rating: {review.rating}</p>
-              <p>Year: {review.year}</p>
-              <p>{review.review}</p>
-              <div className="card-actions justify-end">
-                <Link
-                  to={`/reviewDetails/${review._id}`}
-                  className="btn w-full"
-                >
-                  Explore Details
-                </Link>
+      {loading ? (
+        <div className="flex  justify-center py-8">
+          <span className="loading loading-bars loading-lg text-green-500"></span>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+          {reviews.map((review) => (
+            <div className="card card-compact bg-base-100  shadow-xl">
+              <figure>
+                <img src={review.photo} alt="Shoes" />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{review.title}</h2>
+                <p className="font-bold text-gray-500  rounded-full">
+                  {review.genre}
+                </p>
+                <p>Rating: {review.rating}</p>
+                <p>Year: {review.year}</p>
+                <p>{review.review}</p>
+                <div className="card-actions justify-end">
+                  <Link
+                    to={`/reviewDetails/${review._id}`}
+                    className="btn w-full"
+                  >
+                    Explore Details
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

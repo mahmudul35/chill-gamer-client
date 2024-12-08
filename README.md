@@ -2,6 +2,10 @@
 
 **Chill Gamer** is a dynamic and interactive gaming review platform where users can explore, add, and manage game reviews. The platform features functionalities like sorting reviews, managing watchlists, and browsing games by rating, year, and genre.
 
+## Live Demo
+
+🔗 **Live Link**: [Chill Gamer](https://chillgamer-eaa4c.web.app)
+
 ## Features
 
 - **All Reviews Page**: View all available game reviews with options to sort by **Rating** or **Year** in descending order.
