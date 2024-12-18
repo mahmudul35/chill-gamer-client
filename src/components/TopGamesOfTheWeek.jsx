@@ -6,7 +6,7 @@ const TopGamesOfTheWeek = ({ dark }) => {
   const [topGames, setTopGames] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/topGamesOfTheWeek")
+    fetch("https://chill-gamer-server-nu.vercel.app/topGamesOfTheWeek")
       .then((res) => res.json())
       .then((data) => setTopGames(data))
       .catch((error) => {});
