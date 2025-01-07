@@ -168,7 +168,9 @@ const AddReview = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Add Review</button>
+            <button className="btn bg-pink-800 text-white hover:bg-pink-700 hover:shadow-lg transition-all duration-300">
+              Add Review
+            </button>
           </div>
         </form>
       </div>
