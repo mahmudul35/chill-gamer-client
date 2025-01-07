@@ -63,7 +63,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-col justify-center items-center h-[calc(100vh-64px)]">
-      <h1 className="font-bold text-2xl text-slate-900 mb-4">
+      <h1 className="font-bold text-2xl text-pink-800 mb-4">
         Login to Your Account
       </h1>
       <div className="card  bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -101,7 +101,9 @@ const Login = () => {
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
           <label className="label">Forgot password?</label>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
+            <button className="btn bg-pink-800 text-white hover:bg-pink-700 hover:shadow-lg transition-all duration-300">
+              Login
+            </button>
           </div>
         </form>
         <div className="divider px-8">OR</div>
@@ -112,7 +114,7 @@ const Login = () => {
         </div>
         <p className="text-center py-5">
           Don't Have an account?{" "}
-          <NavLink to="/auth/register" className="font-bold ">
+          <NavLink to="/auth/register" className="font-bold text-pink-800">
             Register
           </NavLink>
         </p>

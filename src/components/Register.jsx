@@ -59,7 +59,7 @@ const Register = () => {
   };
   return (
     <div className="flex flex-col justify-center items-center h-[calc(100vh-64px)]">
-      <h1 className="font-bold text-2xl text-slate-900 mb-4">
+      <h1 className="font-bold text-2xl  text-pink-800 mb-4">
         Create an Account
       </h1>
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -118,13 +118,15 @@ const Register = () => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Register</button>
+            <button className="btn bg-pink-800 text-white hover:bg-pink-700 hover:shadow-lg transition-all duration-300">
+              Register
+            </button>
           </div>
         </form>
         {error && <p className="text-red-500">{error}</p>}
         <p className="text-center pb-5">
           Already Have an account?{" "}
-          <NavLink to="/auth/login" className="font-bold ">
+          <NavLink to="/auth/login" className="font-bold text-pink-800">
             Login
           </NavLink>
         </p>

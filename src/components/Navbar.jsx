@@ -114,9 +114,7 @@ const Navbar = () => {
               </button>
             </NavLink>
             <NavLink to="/auth/register">
-              <button className="btn bg-green-500 hover:bg-green-400 text-white">
-                Register
-              </button>
+              <button className="btn bg-blue-500  text-white">Register</button>
             </NavLink>
           </>
         )}
