@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../components/Banner";
 import HighestRated from "../components/HighestRated";
 import RecentGames from "../components/RecentGames";
+import Testimonials from "../components/Testimonial";
 import TopGamesOfTheWeek from "../components/TopGamesOfTheWeek";
 import TypingComponent from "../components/Typing";
 const Home = () => {
@@ -47,6 +48,7 @@ const Home = () => {
 
       <HighestRated dark={dark} />
       <RecentGames dark={dark} />
+      <Testimonials />
     </div>
   );
 };

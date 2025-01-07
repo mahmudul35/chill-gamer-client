@@ -16,7 +16,7 @@ const HighestRated = ({ dark }) => {
   }, []);
   return (
     <div className="py-6">
-      <h1 className="text-3xl font-bold text-center mb-6 dark:text-base-100">
+      <h1 className="text-4xl font-bold text-pink-800 text-center mb-6 dark:text-base-100">
         Highest Rated Game
       </h1>
       {loading ? (

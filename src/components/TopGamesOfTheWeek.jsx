@@ -15,7 +15,7 @@ const TopGamesOfTheWeek = ({ dark }) => {
   return (
     <section className="bg-gray-100 py-10 dark:text-base-100  dark:bg-slate-900 ">
       <div className="container mx-auto ">
-        <h2 className="text-3xl font-bold text-center mb-6 dark:text-base-100">
+        <h2 className="text-4xl font-bold text-pink-800 text-center mb-6 dark:text-base-100">
           Top Games of the Week
         </h2>
         <Marquee gradient={false} speed={100} className="flex items-center">
