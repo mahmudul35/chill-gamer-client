@@ -1,20 +1,25 @@
 import React, { useContext } from "react";
-
 import { NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { AuthContext } from "../context/AuthProvider";
+
 const Navbar = () => {
   const { user, signOutUser, dark } = useContext(AuthContext);
 
   return (
-    <div className="navbar bg-base-100 dark:bg-slate-900 dark:text-white">
+    <div className="navbar bg-white  dark:bg-slate-900 dark:text-white">
+      {/* Navbar Start */}
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <button
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -26,106 +31,92 @@ const Navbar = () => {
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
-          </div>
+          </button>
           <ul
-            tabindex="0"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 w-52 p-2 rounded-lg bg-white shadow-lg dark:bg-slate-800"
           >
-            <NavLink to={"/"}>Home</NavLink>
-            <NavLink to="/allreview">All Reviews</NavLink>
-            <NavLink to="/addreview">Add Review</NavLink>
-            <NavLink to="/myreviews">My Reviews</NavLink>
-            <NavLink to="/watchlist">Game WatchList </NavLink>
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/allreview">All Reviews</NavLink>
+            </li>
+            <li>
+              <NavLink to="/addreview">Add Review</NavLink>
+            </li>
+            <li>
+              <NavLink to="/myreviews">My Reviews</NavLink>
+            </li>
+            <li>
+              <NavLink to="/watchlist">Game WatchList</NavLink>
+            </li>
           </ul>
         </div>
-        <a className="hidden md:inline btn btn-ghost text-xl">Chill Gamer</a>
+        <NavLink
+          to="/"
+          className="hidden md:inline text-xl font-bold text-pink-800"
+        >
+          Chill Gamer
+        </NavLink>
       </div>
+
+      {/* Navbar Center */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-7">
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "pending"
-                : isActive
-                ? "text-slate-950 dark:text-red-700 font-bold hover:scale-105 underline "
-                : ""
-            }
-            to={"/"}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "pending"
-                : isActive
-                ? "text-slate-950 dark:text-red-700 font-bold hover:scale-105 underline "
-                : ""
-            }
-            to="/allreview"
-          >
-            All Reviews
-          </NavLink>
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "pending"
-                : isActive
-                ? "text-slate-950 dark:text-red-700 font-bold hover:scale-105 underline "
-                : ""
-            }
-            to="/addreview"
-          >
-            Add Review
-          </NavLink>
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "pending"
-                : isActive
-                ? "text-slate-950 dark:text-red-700 font-bold hover:scale-105 underline "
-                : ""
-            }
-            to="/myreviews"
-          >
-            My Reviews
-          </NavLink>
-          <NavLink
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "pending"
-                : isActive
-                ? "text-slate-950 dark:text-red-700 font-bold hover:scale-105 underline "
-                : ""
-            }
-            to="/watchlist"
-          >
-            Game WatchList{" "}
-          </NavLink>
+        <ul className="menu menu-horizontal px-1 gap-5">
+          {[
+            { name: "Home", route: "/" },
+            { name: "All Reviews", route: "/allreview" },
+            { name: "Add Review", route: "/addreview" },
+            { name: "My Reviews", route: "/myreviews" },
+            { name: "Game WatchList", route: "/watchlist" },
+          ].map((item, index) => (
+            <li key={index}>
+              <NavLink
+                to={item.route}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-pink-800 font-semibold border-b-2 border-pink-800"
+                    : "hover:text-pink-800 transition-colors"
+                }
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </div>
-      <div className="navbar-end">
+
+      {/* Navbar End */}
+      <div className="navbar-end flex items-center gap-4">
         {user && (
           <img
             src={user?.photoURL}
-            alt=""
-            className="h-10 w-10 rounded-full mr-4 my-anchor-element"
+            alt="User Avatar"
+            className="h-10 w-10 rounded-full border-2 border-pink-800 my-anchor-element"
           />
         )}
         <Tooltip anchorSelect=".my-anchor-element" place="top" className="z-50">
-          {user?.displayName}
+          {user?.displayName || "User"}
         </Tooltip>
         {user ? (
-          <button onClick={signOutUser} class="btn  bg-slate-800 text-white">
+          <button
+            onClick={signOutUser}
+            className="btn bg-pink-800 hover:bg-pink-700 text-white"
+          >
             Logout
           </button>
         ) : (
           <>
             <NavLink to="/auth/login">
-              <button class="btn  bg-slate-800 text-white mr-4">Login</button>
+              <button className="btn bg-pink-800 hover:bg-pink-700 text-white">
+                Login
+              </button>
             </NavLink>
             <NavLink to="/auth/register">
-              <button class="btn  bg-green-500 text-white">Register</button>
+              <button className="btn bg-green-500 hover:bg-green-400 text-white">
+                Register
+              </button>
             </NavLink>
           </>
         )}
