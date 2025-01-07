@@ -18,7 +18,7 @@ const HighestRated = ({ dark }) => {
       .then((data) => setReviews(data));
   }, []);
   return (
-    <div className="py-6">
+    <div className="py-6 container mx-auto">
       <h1 className="text-4xl font-bold text-pink-800 text-center mb-6 dark:text-base-100">
         Highest Rated Game
       </h1>
@@ -27,7 +27,7 @@ const HighestRated = ({ dark }) => {
           <span className="loading loading-bars loading-lg text-green-500"></span>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 mt-8 dark:text-base-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6  mt-8 dark:text-base-100">
           {reviews.map((review) => (
             <div key={review.id} className="card bordered">
               <figure>
