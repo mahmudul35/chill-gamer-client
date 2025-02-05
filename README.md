@@ -54,7 +54,7 @@ The following dependencies are used in this project:
 
 
 
----
+
 ## 🚀 Installation & Setup  
 
 ### 🏢 1️⃣ Clone the Repository  
