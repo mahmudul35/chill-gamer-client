@@ -57,7 +57,7 @@ The following dependencies are used in this project:
 ### 🏢 1️⃣ Clone the Repository  
 ```sh
 git clone https://github.com/yourusername/chillgamer.git
-cd medicamp-hub
+cd chillgamer
 ```
 
 ---
