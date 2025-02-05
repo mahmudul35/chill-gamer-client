@@ -52,6 +52,9 @@ The following dependencies are used in this project:
 
 ---
 
+
+
+---
 ## 🚀 Installation & Setup  
 
 ### 🏢 1️⃣ Clone the Repository  
@@ -59,8 +62,6 @@ The following dependencies are used in this project:
 git clone https://github.com/yourusername/chillgamer.git
 cd chillgamer
 ```
-
----
 
 ### 🖥️ 2️⃣ Frontend Setup (React.js)  
 
